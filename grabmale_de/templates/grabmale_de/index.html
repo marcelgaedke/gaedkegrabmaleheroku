@@ -1,0 +1,119 @@
+{% extends 'grabmale_de/base.html' %}
+{% load static %}
+
+{% block title %}GAEDKE NATURSTEIN{% endblock %}
+
+{% block content %}
+
+        <!-- Top Content -->
+        <div id="carousel_row text-center" class="row" >
+            <div class="col-lg-12 text-center">
+                <h1>{{ cat.name }}</h1>
+            </div>
+        </div>
+
+           <!-- Post 1
+          <div class="col-lg-3">
+              {% if category_list %}
+                    {% for c in category_list %}
+                         {% if c.id  == 1 %}
+                            {% for p in c.post_set.all %}
+                                {% if p.position  == 1 %}
+
+                                    <h2>{{p.title}}</h2>
+                                    <p>{{p.text}}</p>
+                                {%endif%}
+
+                            {% endfor %}
+                        {%endif%}
+                    {% endfor %}
+                {%endif%}
+
+          </div>-->
+
+            <!-- Carousel -->
+          <div  class="col-lg-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+
+
+                {% for s in slider_img_list %}
+                  {% if s.index == 0%}
+                    <div class="carousel-item active">
+                  {% else %}
+                    <div class="carousel-item">
+                  {% endif %}
+                      <img class="d-block w-100" src="{% static s.filename %}" alt="slide {{ s.index }}">
+                    </div>
+
+                  {% endfor %}
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+    <hr>
+
+        <article>
+             {% if category_list %}
+                    {% for c in category_list %}
+                         {% if c.id  == 1 %}
+                            {% for p in c.post_set.all %}
+                                {% if p.position  == 0 %}
+
+                                    <h2>{{p.title}}</h2>
+                                    <p>{{p.text}}</p>
+                                {%endif%}
+
+                            {% endfor %}
+                        {%endif%}
+                    {% endfor %}
+                {%endif%}
+
+
+
+        </article>
+
+    <hr>
+
+        <!-- Picture Gallery -->
+        <div class="row top-buffer">
+            {% if category_list %}
+                {% for c in category_list %}
+                    {% for p in c.picture_set.all %}
+                        {% if p.position  == 0 %}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                              <div class="card">
+                                  <a href="/{{ c.id }} ">
+                                  <h3 class="text-center">{{ c.category_html_name }}</h3>
+                                <img class="card-img-top" src="{% static p.url %}" alt=""></a>
+                                <div class="card-body">
+                                    {% for post in c.post_set.all %}
+                                        {% if post.position  == 1 %}
+                                          <h4 class="card-title text-center">{{ post.title }}</h4>
+                                          <p class="card-text">{{post.text}}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer">
+                                  <a href="#" class="btn btn-secondary btn-block">weitere Infos</a>
+                                </div>
+                              </div>
+                            </div>
+                        {%endif%}
+                    {% endfor %}
+                {% endfor %}
+            {%endif%}
+        </div>
+
+
+
+{% endblock %}

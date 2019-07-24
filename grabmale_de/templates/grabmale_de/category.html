@@ -1,0 +1,93 @@
+{% extends 'grabmale_de/base.html' %}
+{% load static %}
+
+{% block title %}{{ category.category_name }}{% endblock %}
+
+
+{% block content %}
+    <!-- Top Content -->
+        <div id="carousel_row text-center" class="row" >
+            <div class="col-lg-12 text-center">
+                <h1>{{ category.category_html_name }}</h1>
+            </div>
+        </div>
+
+
+            <!-- Carousel -->
+          <div  class="col-lg-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+
+
+                {% for s in slider_img_list %}
+                    {% if s.index == 0%}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+                            <img class="d-block w-100" src="{% static s.filename %}" alt="slide {{ s.index }}">
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+    <hr>
+
+        <article>
+
+            {% for p in category.post_set.all %}
+                {% if p.position  == 0 %}
+                    <h2>{{p.title}}</h2>
+                    <p>{{p.text}}</p>
+
+                {%endif%}
+
+            {% endfor %}
+        </article>
+
+    <hr>
+
+
+
+
+<!-- Bildergalerie -->
+
+    <div class="container gallery-container">
+
+        <h1>Bildergalerie</h1>
+
+        <p class="page-description text-center">{{ category.category_html_name }}</p>
+
+        <div class="tz-gallery">
+
+            <div class="row">
+                {% for i in img_list %}
+                <div class="col-sm-12 col-md-4">
+                    <a class="lightbox" href="{% static i.filename %}">
+                        <img src="{% static i.filename %}" alt="{% static i.description %}">
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+
+
