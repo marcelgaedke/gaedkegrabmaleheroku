@@ -101,7 +101,8 @@ DATABASES = {
         'NAME': 'd8hi67dios5vs5',
         'USER': 'egesdprjvchhqx',
         'PASSWORD': '4292d62053be4a194d0f8d627533f69681676444878a2033d2dae9d4a7d8e1f1',
-        'HOST': os.environ.get('DATABASE_URL'),
+        #'HOST': os.environ.get('DATABASE_URL'),
+        'HOST': 'ec2-54-243-208-234.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
