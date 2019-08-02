@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blooming-reaches-51712.herokuapp.com','https://blooming-reaches-51712.herokuapp.com/']
+ALLOWED_HOSTS = ['blooming-reaches-51712.herokuapp.com','https://blooming-reaches-51712.herokuapp.com/','127.0.0.1']
 
 
 # Application definition
@@ -74,13 +74,37 @@ WSGI_APPLICATION = 'gaedke.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
+#localhost
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'gaedkedb',
+#         'USER': 'user1',
+#         'PASSWORD': 'pass123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+#heroku
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8hi67dios5vs5',
+        'USER': 'egesdprjvchhqx',
+        'PASSWORD': '4292d62053be4a194d0f8d627533f69681676444878a2033d2dae9d4a7d8e1f1',
+        'HOST': os.environ.get('DATABASE_URL'),
+        'PORT': '5432',
     }
 }
-
 
 
 
@@ -117,8 +141,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+#uncomment if running on server
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'

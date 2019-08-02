@@ -1,0 +1,1 @@
+[{"model": "grabmale_de.category", "pk": 1, "fields": {"category_name": "Home", "category_html_name": "Home"}}, {"model": "grabmale_de.category", "pk": 2, "fields": {"category_name": "Waschtische", "category_html_name": "Waschtische"}}, {"model": "grabmale_de.category", "pk": 3, "fields": {"category_name": "Kamine", "category_html_name": "Kamine"}}]

@@ -1,0 +1,1 @@
+[{"model": "grabmale_de.post", "pk": 1, "fields": {"category": 3, "position": 0, "title": "Post0 cat2", "text": "Position 0 cat 2"}}, {"model": "grabmale_de.post", "pk": 2, "fields": {"category": 2, "position": 0, "title": "Post0 cat3", "text": "Post 0 Position 0 cat 3"}}]
